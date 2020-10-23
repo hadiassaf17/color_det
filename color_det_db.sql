@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2020 at 04:56 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Generation Time: Oct 23, 2020 at 04:32 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `pdemia_students_hadi_python`
+-- Database: `color_det_db`
 --
 
 -- --------------------------------------------------------
@@ -34,10 +33,10 @@ CREATE TABLE `account` (
   `email` varchar(255) DEFAULT NULL,
   `salt` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `account_role_fk` int(10) UNSIGNED DEFAULT '3',
+  `account_role_fk` int(10) UNSIGNED DEFAULT 3,
   `image_profile` varchar(255) DEFAULT NULL,
   `active` varchar(1) DEFAULT '1',
-  `html_about` longtext,
+  `html_about` longtext DEFAULT NULL,
   `enum_gender` enum('male','female') DEFAULT 'male'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -47,7 +46,8 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`id`, `name`, `email`, `salt`, `password`, `account_role_fk`, `image_profile`, `active`, `html_about`, `enum_gender`) VALUES
 (1, 'jawad', 'jawad', '4e8a432316d448eb8e976d94713a2682', '1ce1d0433b1e1ec526711778565323de', 2, 'mhmdjawadzd.jpg', '1', '<p>mhmd jawad</p>\n', 'male'),
-(2, 'admin', 'admin', '2bcbbc9460c9a89f5b4d73d5c1c032fa', 'b7659a0c7ae3354f565a18caa1705a46', 2, NULL, '1', NULL, 'male');
+(2, 'admin', 'admin', '2bcbbc9460c9a89f5b4d73d5c1c032fa', 'b7659a0c7ae3354f565a18caa1705a46', 2, NULL, '1', NULL, 'male'),
+(3, 'jawad2', 'jawad2', '487766a479e76210310153f0a6e8d643', '7e5bc0c30b99a7b7aba8dc1162c547c1', 3, '', '1', NULL, 'male');
 
 -- --------------------------------------------------------
 
@@ -6492,125 +6492,20 @@ CREATE TABLE `image_rgba` (
 --
 
 INSERT INTO `image_rgba` (`id`, `stored_image_fk`, `rgba_list_fk`) VALUES
-(1, 2, 1),
-(2, 2, 2),
-(3, 2, 3),
-(4, 2, 4),
-(5, 2, 5),
-(6, 2, 6),
-(7, 2, 7),
-(8, 2, 8),
-(9, 2, 9),
-(10, 2, 10),
-(11, 2, 11),
-(12, 2, 12),
-(13, 2, 13),
-(14, 2, 14),
-(15, 2, 15),
-(16, 2, 16),
-(17, 2, 17),
-(18, 2, 18),
-(19, 2, 19),
-(20, 2, 20),
-(21, 2, 21),
-(22, 2, 22),
-(23, 2, 23),
-(24, 2, 24),
-(25, 2, 25),
-(26, 2, 26),
-(27, 2, 27),
-(28, 2, 28),
-(29, 2, 29),
-(30, 2, 30),
-(31, 2, 31),
-(32, 2, 32),
-(33, 2, 33),
-(34, 2, 34),
-(35, 2, 35),
-(36, 2, 36),
-(37, 2, 37),
-(38, 2, 38),
-(39, 2, 39),
-(40, 2, 40),
-(41, 2, 41),
-(42, 2, 42),
-(43, 2, 43),
-(44, 2, 44),
-(45, 2, 45),
-(46, 2, 46),
-(47, 2, 47),
-(48, 2, 48),
-(49, 2, 49),
-(50, 2, 50),
-(51, 2, 51),
-(52, 2, 52),
-(53, 2, 53),
-(54, 2, 54),
-(55, 2, 55),
-(56, 2, 56),
-(57, 2, 57),
-(58, 2, 58),
-(59, 2, 59),
-(60, 2, 60),
-(61, 2, 61),
-(62, 2, 62),
-(63, 2, 63),
-(64, 2, 64),
-(65, 2, 65),
-(66, 2, 66),
-(67, 2, 67),
-(68, 2, 68),
-(69, 2, 69),
-(70, 2, 70),
-(71, 2, 71),
-(72, 2, 72),
-(73, 2, 73),
-(74, 2, 74),
-(75, 2, 75),
-(76, 2, 76),
-(77, 2, 77),
-(78, 2, 78),
-(79, 2, 79),
-(80, 2, 80),
-(81, 2, 81),
-(82, 2, 82),
-(83, 2, 83),
-(84, 2, 84),
-(85, 2, 85),
-(86, 2, 86),
-(87, 2, 87),
-(88, 2, 88),
-(89, 2, 89),
-(90, 2, 90),
-(91, 2, 91),
-(92, 2, 92),
-(93, 2, 93),
-(94, 2, 94),
-(95, 2, 95),
-(96, 2, 96),
-(97, 2, 97),
-(98, 2, 98),
-(99, 2, 99),
-(100, 2, 100),
-(101, 2, 101),
-(102, 2, 102),
-(103, 2, 103),
-(104, 2, 104),
-(105, 2, 105),
-(106, 2, 106),
-(107, 2, 107),
-(108, 2, 108),
-(109, 2, 109),
-(110, 2, 110),
-(111, 2, 111),
-(112, 2, 112),
-(113, 2, 113),
-(114, 2, 114),
-(115, 2, 115),
-(116, 2, 116),
-(117, 2, 117),
-(118, 2, 118),
-(119, 2, 119);
+(1, 1, 120),
+(2, 1, 121),
+(3, 1, 122),
+(4, 1, 123),
+(5, 1, 124),
+(6, 1, 125),
+(7, 1, 126),
+(8, 2, 120),
+(9, 2, 121),
+(10, 2, 122),
+(11, 2, 123),
+(12, 2, 124),
+(13, 2, 125),
+(14, 2, 126);
 
 -- --------------------------------------------------------
 
@@ -6630,7 +6525,15 @@ CREATE TABLE `rgba_color_map` (
 
 INSERT INTO `rgba_color_map` (`id`, `colors_names_fk`, `rgba_list_fk`) VALUES
 (1, 1, 1),
-(3, 4, 2);
+(3, 4, 2),
+(4, 2950, 126),
+(5, 2992, 125),
+(6, 2988, 124),
+(7, 1692, 120),
+(8, 4298, 121),
+(9, 2995, 122),
+(10, 2995, 123),
+(11, 2992, 124);
 
 -- --------------------------------------------------------
 
@@ -6769,7 +6672,14 @@ INSERT INTO `rgba_list` (`id`, `r`, `g`, `b`, `a`) VALUES
 (116, 14, 177, 177, 3),
 (117, 9, 32, 70, 30),
 (118, 9, 32, 70, 95),
-(119, 9, 32, 70, 9);
+(119, 9, 32, 70, 9),
+(120, 87, 24, 69, 127),
+(121, 144, 12, 62, 127),
+(122, 199, 0, 57, 127),
+(123, 199, 0, 56, 127),
+(124, 255, 87, 51, 127),
+(125, 255, 87, 50, 127),
+(126, 255, 195, 0, 127);
 
 -- --------------------------------------------------------
 
@@ -6790,10 +6700,8 @@ CREATE TABLE `stored_image` (
 --
 
 INSERT INTO `stored_image` (`id`, `name`, `image`, `active`, `active_read`) VALUES
-(2, 'pdemia', 'logo.png', '1', '1'),
-(4, 'ww', '1602702707utube.png', '1', '0'),
-(5, 'pdf icon', '1602707316pdf.png', '1', '0'),
-(6, 'test', '1603148941Screenshot 2020-09-22 004500.png', '1', '0');
+(1, 'test', 'color.jpg', '1', '1'),
+(2, 'test2', 'color2.jpg', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -6804,7 +6712,7 @@ INSERT INTO `stored_image` (`id`, `name`, `image`, `active`, `active_read`) VALU
 CREATE TABLE `web_pages` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `html` text
+  `html` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -6822,7 +6730,8 @@ INSERT INTO `web_pages` (`id`, `name`, `html`) VALUES
 -- Indexes for table `account`
 --
 ALTER TABLE `account`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `account_ibfk_1` (`account_role_fk`);
 
 --
 -- Indexes for table `account_role`
@@ -6840,13 +6749,17 @@ ALTER TABLE `colors_names`
 -- Indexes for table `image_rgba`
 --
 ALTER TABLE `image_rgba`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rgba_list_fk` (`rgba_list_fk`),
+  ADD KEY `stored_image_fk` (`stored_image_fk`);
 
 --
 -- Indexes for table `rgba_color_map`
 --
 ALTER TABLE `rgba_color_map`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `colors_names_fk` (`colors_names_fk`),
+  ADD KEY `rgba_list_fk` (`rgba_list_fk`);
 
 --
 -- Indexes for table `rgba_list`
@@ -6874,7 +6787,7 @@ ALTER TABLE `web_pages`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `account_role`
@@ -6892,31 +6805,55 @@ ALTER TABLE `colors_names`
 -- AUTO_INCREMENT for table `image_rgba`
 --
 ALTER TABLE `image_rgba`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `rgba_color_map`
 --
 ALTER TABLE `rgba_color_map`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `rgba_list`
 --
 ALTER TABLE `rgba_list`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT for table `stored_image`
 --
 ALTER TABLE `stored_image`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `web_pages`
 --
 ALTER TABLE `web_pages`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `account`
+--
+ALTER TABLE `account`
+  ADD CONSTRAINT `account_ibfk_1` FOREIGN KEY (`account_role_fk`) REFERENCES `account_role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `image_rgba`
+--
+ALTER TABLE `image_rgba`
+  ADD CONSTRAINT `image_rgba_ibfk_1` FOREIGN KEY (`rgba_list_fk`) REFERENCES `rgba_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `image_rgba_ibfk_2` FOREIGN KEY (`stored_image_fk`) REFERENCES `stored_image` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `rgba_color_map`
+--
+ALTER TABLE `rgba_color_map`
+  ADD CONSTRAINT `rgba_color_map_ibfk_1` FOREIGN KEY (`colors_names_fk`) REFERENCES `colors_names` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rgba_color_map_ibfk_2` FOREIGN KEY (`rgba_list_fk`) REFERENCES `rgba_list` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

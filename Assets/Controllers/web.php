@@ -185,12 +185,12 @@ class WEB extends PDemiaBaseMVC{
                 echo '<td><img src="' . WEB::getImageUrl($r["image"]) .'" height=60></td>';
                 echo '<td>';
                 
-                echo '<button class="btn" onclick="SYS.LoadXHR(\'CT1\',\'colors/read_image_pixels/'.$r["id"].'\');" >read through php</button>';
                 
                 if($r["active_read"] == 1){
                     echo '<button class="btn" onclick="SYS.LoadXHR(\'CT1\',\'colors/load_image_pixels/'.$r["id"].'\');" >load from db</button>';
                 }
                 else{
+                    echo '<button class="btn" onclick="SYS.LoadXHR(\'CT1\',\'colors/read_image_pixels/'.$r["id"].'\');" >read through php</button>';
                     //echo '<button class="btn" onclick="SYS.py_read_pixels(\'CT1\',\''.$r["id"].'\',\''.$r["image"].'\');" >read now</button>';
                     //echo '<button class="btn" onclick="SYS.py_read_pixels(\'CT1\',\''.$r["id"].'\',\''.$r["image"].'\');" >read now</button>';
                 }
@@ -291,29 +291,6 @@ class WEB extends PDemiaBaseMVC{
                 SYS.initializeRGBTable(`#color_table_container`);
             </script>';
             
-        }
-        function teach_colors(){
-            $html = DAL::getFormForTable(
-                "image_colors"
-                ,null
-                ,[]
-                ,"colors/teach_colors_submit"
-                );echo $html;
-        }
-        function teach_colors_submit(){
-            $d = $_POST;
-            unset($d["key"]);
-            $t = $d["table"];unset($d["table"]);
-            if($d["name"] ==""){
-                die("must enter name");
-            }
-            $r = DAL::insert($t,$d);
-            if($r > 0){
-                echo "color learned";
-            }
-            else{
-                echo "could not learn";
-            }
         }
         function add_color_rgb_map(){
             $rgbid =$_POST['rgbid'];

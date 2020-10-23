@@ -26,7 +26,7 @@ define('GORP',$_SERVER['REQUEST_METHOD']);
 global $DBOCFG;//sql130.main-hosting.eu
 $DBOCFG= [
      "host"=>"localhost",
-     "database"=>"pdemia_students_hadi_python",
+     "database"=>"color_det_db",
      "user"=>"root",
      "password"=>""
 ];
